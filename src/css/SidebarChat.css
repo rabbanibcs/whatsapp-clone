@@ -1,0 +1,34 @@
+.sidebar_chat {
+    display: flex;
+    /* place-items: center; */
+    padding-left: 10px;
+    padding-top: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(226, 217, 217);
+    background-color: white;
+    
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.sidebar_chat:hover {
+
+    background-color: rgb(226, 210, 210);
+
+}
+.sidebar_chat_info {
+
+    margin-left: 15px;
+}
+.sidebar_chat_info >h5 {
+
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+.sidebar_chat_info >p {
+
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
