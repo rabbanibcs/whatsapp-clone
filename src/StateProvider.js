@@ -10,8 +10,9 @@ export const StateProvider=({children})=>{
     const signIn=()=>{
         auth.signInWithPopup(provider)
         .then((result)=>{
-            // console.log(result) 
-            setCurrentUser(result.user)          
+            // console.log(result.user.email) 
+            setCurrentUser(result.user)        
+            window.sessionStorage.setItem('user' , JSON.stringify(result.user))
 
         })
         .catch((err)=>console.log(err.message))

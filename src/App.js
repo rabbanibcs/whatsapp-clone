@@ -3,27 +3,25 @@ import Chat from './Chat';
 import SideBar from './SideBar';
 import {BrowserRouter as Router,  Switch,  Route} from "react-router-dom";
 import LogIn from './LogIn';
-import React,{useEffect} from 'react'
+import React,{useLayoutEffect} from 'react'
 import {useStateValue} from './StateProvider'
-import {auth} from './firebase'
 
 function App() {
   const {currentUser,setCurrentUser}=useStateValue()
+ 
+  useLayoutEffect(()=>{    
+  const user =JSON.parse(window.sessionStorage.getItem('user'))
+  setCurrentUser(user)
+  
 
-  useEffect(
-    auth.onAuthStateChanged((user)=>{
-      if (user) {
-          setCurrentUser(user);         
+} ,[setCurrentUser])
 
-      } 
-    })
-    )
-
-  return (
+  return (    
     !currentUser? 
     <LogIn/>:    
       <div className="App">      
         <div className="app_body">
+          
           <Router>
             <SideBar />
             <Switch>
